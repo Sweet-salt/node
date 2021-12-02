@@ -7,4 +7,8 @@ var mySet = function(request, response){
     }
     response.writeHead(200, {'Content-Type': 'text/html'});
     var htmlFile = fs.readFileSync(__dirname + url);
+    response.end(htmlFile);
 }
+
+var app = http.createServer(mySet);
+app.listen(8080);
