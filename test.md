@@ -22,10 +22,60 @@
 
 ### Here’s some things you could do now that you’ve reached the end of this fascinating post:
 
-<h3>        Go buy the book!
-    Read an excerpt from the book published today on A List Apart
-    Listen to Jeffrey Zeldman and I chat about the book and other stuff
-    Dig into the magical world of Sushi  Cats
-</h3>
+##       Go buy the book!
+##    Read an excerpt from the book published today on A List Apart
+##    Listen to Jeffrey Zeldman and I chat about the book and other stuff
+##  Dig into the magical world of Sushi  Cats
 
 
+# Previous entry	
+# About SimpleBits
+## SimpleBits is the tiny creative studio of designer, author, and speaker, Dan Cederholm. I make websites and things for people like you. Occasionally, I also talk about them here. More →
+## Ads via the Deck
+
+# CodeGuard
+## Free Trial from CodeGuard. Be the hero with automatic website backup and ChangeAlerts.
+
+# What I’m Working On
+
+## Gameplan Scout Book
+## Profile WIP
+## Weathered Ball Tee
+
+# Latest Projects
+
+## Dribbble What are you working on?
+## Instapaper Icon design
+
+# Books by Dan
+
+##    Sass For Web Designers Paperback + eBook A Book Apart
+##    CSS3 For Web Designers Paperback + eBook A Book Apart
+##    Bulletproof Web Design Third Edition New Riders
+##    Handcrafted CSS Book and DVD New Riders
+##    Web Standards Solutions Special Edition Friends of Ed
+
+# Archives
+
+##  November 2013
+##  February 2013
+##  April 2012
+##  February 2012
+##  December 2011
+##  View all →
+
+# Elsewhere
+
+##  twitter/simplebits
+##  dribbble/simplebits
+##  instagram/simplebits
+##  500px/simplebits
+##  flickr/simplebitsdan
+##  vimeo/simplebits
+
+### Handcrafted pixels & text from Salem, Massachusetts.
+
+
+#### Copyright © 1999-2014 SimpleBits LLC. All rights reserved. Hosted by (mt) Media Temple.
+
+#### SB
