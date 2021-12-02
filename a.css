@@ -1,0 +1,6 @@
+body .box li{
+    background-color: yellow;
+    display: inline;
+    border-radius: 2px solid yellow;
+    margin-right: 10px;
+}
