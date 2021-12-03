@@ -1,6 +1,32 @@
-body .box li{
-    background-color: yellow;
-    display: inline;
-    border-radius: 2px solid yellow;
-    margin-right: 10px;
+body .grandmom{
+    border: 1px solid black;
+    padding: 20px;
+
 }
+
+body .mother.left {
+    width: 270px;
+    padding: 20px;
+    border: 2px solid lime;
+    height: auto;
+    float: left;
+}
+body .mother.right {
+    width: 270px;
+    padding: 20px;
+    border: 2px solid lime;
+    height: auto;
+    float: right;
+}
+body .photo{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border: 10px solid lime;
+    float: left;
+    
+}
+.bottom{
+    clear: both;
+}
+
