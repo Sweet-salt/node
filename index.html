@@ -4,17 +4,83 @@
     <meta charset="UTF-8">
     <title>첫페이지</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+        .kind_wrap{
+            border: 2px solid black;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .kind_wrap > .kind_slider {
+            overflow: hidden;
+        }
+        .kind_slider .slider {
+            
+        }
+        .kind_slider .slider li{
+            float: left;
+        }
+        .kind_slider .slider li img{
+            vertical-align: top;
+        }
+        .kind_wrap .arrow > a.prev {
+            position: absolute;
+            left: -50px;
+            top: 100px;
+        }
+        .kind_wrap .arrow > a.next {
+            position: absolute;
+            right: -50px;
+            top: 100px;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="kind_wrap">
+        <div class="kind_slider">
+            <ul class="slider">
+                <li><img src="https://via.placeholder.com/800x200.png?text=1" alt=""></li>
+                <li><img src="https://via.placeholder.com/800x200.png?text=2" alt=""></li>
+                <li><img src="https://via.placeholder.com/800x200.png?text=3" alt=""></li>
+            </ul>
+        </div>
+        
+        <div class="arrow">
+            <a href="" class="prev">이전</a>
+            <a href="" class="next">다음</a>
+        </div>
+    </div>
     <script>
-        var b = 30;
-        let a = 100;
-        if( a > 20){
-            console.log(a);
-            let a = 10;
-            
-            console.log(b);
+        window.onload = function () {
+        const kind = document.querySelector('.kind_wrap');
+        const slider = kind.querySelector('.slider');
+        const lis = document.querySelectorAll('li');
+        const moveBtn = document.querySelector('.arrow');
+
+        const liwidth = lis[0].clientWidth;
+        const sliderWidth = liwidth * 3;
+        slider.style.width = sliderWidth + 'px';
+        console.log(slider.length);
+        let moveDist = 0;
+
+        moveBtn.addEventListener('click', moveSlide);
+        function moveSlide(e) {
+            e.preventDefault();
+            console.log(e.target.className);
+            if(e.target.className === 'next'){
+                moveDist += -liwidth;
+                console.log(moveDist)
+            }else{
+                moveDist += liwidth;
+                console.log(moveDist)
+            }
         }
+    }
+
     </script>
 </body>
 </html>
