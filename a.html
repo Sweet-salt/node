@@ -6,23 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./a.css">
+    <style>
+        .mother{
+            /* width: 648px; */
+            background-color: red;
+            padding: 26px 36px;
+        }
+        .mother .son{
+            width: 23.14814814814815%;
+            padding-top: 23.14814814814815%;
+            background-color: yellow;
+            float: left;
+        }
+        .mother .son + .son{
+            margin-left: 2.469135%;
+        }
+        .mother::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
 </head>
 <body>
-    <div class="grandmom">
-        <div class="mother left">
-            <div class="photo">
 
-            </div>
-            <p>LEFT. HTML은 선형적 입니다.</p>
-        </div>
-        <div class="mother right">
-            <div class="photo">
+    <div class="mother">
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
 
-            </div>
-            <p>LEFT. HTML은 선형적 입니다.</p>
+    <div class="card">
+        <div class="photo">
+            <img src="./stand.PNG" alt="" />
         </div>
-        <div class="bottom">
-            <p>LEFT. HTML은 선형적 입니다.</p>
+        <div class="index">
+            
+            <div class="avata">
+                <img src="./images/Avatar.png" alt="" />
+                <span class="notice">1</span>
+                <strong>Feilddsd Sacudon</strong>
+            </div>
+            <div class="sns">
+                <div class="comment">
+                    <img src="./images/message-circle.svg" alt="" />
+                    <span>22</span>
+            </div>
+                <div class="like">
+                    <img src="./images/heart.svg" alt="" />
+                    <span>30</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="photo">
+            <img src="./stand.PNG" alt="" />
+        </div>
+        <article>
+            <h3 class="title">El poder de la lampara</h3>
+            <strong class="writer">by Saca Tuerca </strong>
+            <div class="text">
+                <p>Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality, Lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality</p>
+            </div>
+        </article>
+    </div>
+
+    <div class="card">
+        <div class="title_area">
+            <button class="small green">HOME</button>
+            <h3 class="title">Lampara Look</h3>
+            <strong class="writer">by Saca Tuerca </strong>
+        </div>
+        <div class="photo">
+            <img src="./stand.PNG" alt="" />
+        </div>
+        
+        <div class="index">
+            <div class="avata">
+                <img src="./images/Avatar.png" alt="" />
+                <strong>Feilddsd Sacudon</strong>
+            </div>
+            <div class="sns">
+                <div class="comment">
+                    <img src="./images/message-circle.svg" alt="" />
+                    <span>22</span>
+            </div>
+                <div class="like">
+                    <img src="./images/heart.svg" alt="" />
+                    <span>30</span>
+                </div>
         </div>
     </div>
 </body>
