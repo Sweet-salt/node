@@ -16,9 +16,13 @@
         }
         .kind_wrap > .kind_slider {
             overflow: hidden;
+            position: relative;
+            height: 200px;
         }
         .kind_slider .slider {
-            
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         .kind_slider .slider li{
             float: left;
@@ -55,32 +59,66 @@
         </div>
     </div>
     <script>
-        window.onload = function () {
-        const kind = document.querySelector('.kind_wrap');
-        const slider = kind.querySelector('.slider');
-        const lis = document.querySelectorAll('li');
-        const moveBtn = document.querySelector('.arrow');
+        window.onload = function() {
+    /* 돔 준비 */
+    const kindWrap = document.querySelector('.kind_wrap');
+    const slider = kindWrap.querySelector('.slider');
+    const slideLis = slider.querySelectorAll('li');
+    const moveButton = kindWrap.querySelector('.arrow');
+    const liWidth = slideLis[0].clientWidth;
+    let moveDist = -800;
+    let currentNum = 0;
+    let speedTime = 500;
 
-        const liwidth = lis[0].clientWidth;
-        const sliderWidth = liwidth * 3;
-        slider.style.width = sliderWidth + 'px';
-        console.log(slider.length);
-        let moveDist = 0;
+    // 클론만들기
+    const cloneA = slideLis[0].cloneNode(true);
+    const cloneC = slideLis[slideLis.length - 1].cloneNode(true);
+    console.log(cloneA, cloneC);
+    slider.insertBefore(cloneC, slideLis[0]);
+    slider.appendChild(cloneA);
 
-        moveBtn.addEventListener('click', moveSlide);
-        function moveSlide(e) {
-            e.preventDefault();
-            console.log(e.target.className);
-            if(e.target.className === 'next'){
-                moveDist += -liwidth;
-                console.log(moveDist)
-            }else{
-                moveDist += liwidth;
-                console.log(moveDist)
+    /* 넓이 구하기 */
+    const slidecloneLis = slider.querySelectorAll('li');
+    const sliderWidth = liWidth * slidecloneLis.length;
+    slider.style.width = sliderWidth + 'px';
+    console.log(slidecloneLis[0].clientWidth);
+    
+    slider.style.left = `${-liWidth}px`;
+
+    moveButton.addEventListener('click', moveSlide);
+
+    function moveSlide(ev) {
+        
+        ev.preventDefault();
+        if (ev.target.className === 'next') {
+            if (currentNum === slidecloneLis.length - 1) {
+                return;
+                // currentNum = 0;
+                // moveDist = 0;
+                // slider.style.left = `${moveDist}px`;
+            } else {
+                move(-1);
+            }
+        } else {
+            if (currentNum === 0) {
+                return;
+                // currentNum = slideLis.length - 1;
+                // moveDist = -(liWidth * currentNum);
+                // slider.style.left = `${moveDist}px`;
+            } else {
+                move(1);
             }
         }
-    }
+        function move(direction) {
+            currentNum += (-1 * direction)
+            moveDist += liWidth * direction;
+            slider.style.transition = `all ${speedTime}ms ease`;
+            slider.style.left = `${moveDist}px`;
+        }
 
+    }
+}
+    
     </script>
 </body>
 </html>
