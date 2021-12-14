@@ -66,8 +66,8 @@
     const slideLis = slider.querySelectorAll('li');
     const moveButton = kindWrap.querySelector('.arrow');
     const liWidth = slideLis[0].clientWidth;
-    let moveDist = -800;
-    let currentNum = 0;
+    let moveDist = -liWidth;
+    let currentNum = 1;
     let speedTime = 500;
 
     // 클론만들기
@@ -83,7 +83,7 @@
     slider.style.width = sliderWidth + 'px';
     console.log(slidecloneLis[0].clientWidth);
     
-    slider.style.left = `${-liWidth}px`;
+    slider.style.left = `${moveDist}px`;
 
     moveButton.addEventListener('click', moveSlide);
 
@@ -91,23 +91,28 @@
         
         ev.preventDefault();
         if (ev.target.className === 'next') {
+            move(-1);
             if (currentNum === slidecloneLis.length - 1) {
-                return;
-                // currentNum = 0;
-                // moveDist = 0;
-                // slider.style.left = `${moveDist}px`;
+                setTimeout( () => {
+                    slider.style.transition = 'none';
+                    moveDist = -liWidth;
+                    slider.style.left = `${-liWidth}px`;
+                    currentNum = 1;
+                }, speedTime);
             } else {
-                move(-1);
+                
             }
         } else {
+            move(1);
             if (currentNum === 0) {
-                return;
-                // currentNum = slideLis.length - 1;
-                // moveDist = -(liWidth * currentNum);
-                // slider.style.left = `${moveDist}px`;
-            } else {
-                move(1);
-            }
+                setTimeout( () => {
+                    slider.style.transition = 'none';
+                    moveDist = -liWidth * (slidecloneLis.length -2);
+                    slider.style.left = `${moveDist}px`;
+                    currentNum = slidecloneLis.length -2;
+                }, speedTime);
+               
+            } 
         }
         function move(direction) {
             currentNum += (-1 * direction)
@@ -118,7 +123,6 @@
 
     }
 }
-    
     </script>
 </body>
 </html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+* {margin:0; padding:0;}
+li {list-style: none;}
+.kind_wrap {
+    border:2px solid black; 
+    width:100%;
+    max-width: 800px;
+    margin:0 auto;
+    position: relative;
+}
+.kind_wrap > .kind_slider {
+    position:relative;
+    overflow: hidden;
+    height:200px;
+}
+.kind_wrap > .kind_slider .slider {
+    position:absolute;
+    top:0;
+    left:0;
+}
+.kind_wrap > .kind_slider .slider > li{
+    float:left;
+}
+.kind_wrap > .kind_slider .slider > li img {
+    vertical-align: top;
+}
+.kind_wrap .arrow > a.prev {position: absolute; left:-50px; top:100px;}
+.kind_wrap .arrow > a.next {position: absolute; right:-50px; top:100px;}
+</style>
+</head>
+<body>
+<div class="kind_wrap">
+    <div class="kind_slider">
+        <ul class="slider">
+            <li><img src="https://via.placeholder.com/800x200.png?text=1" alt=""></li>
+            <li><img src="https://via.placeholder.com/800x200.png?text=2" alt=""></li>
+            <li><img src="https://via.placeholder.com/800x200.png?text=3" alt=""></li>
+        </ul>
+    </div>
+    
+    <div class="arrow">
+        <a href="" class="prev">이전</a>
+        <a href="" class="next">다음</a>
+    </div>
+</div>
+<script>
+window.onload = function() {
+    /* 돔 준비 */
+    const kindWrap = document.querySelector('.kind_wrap');
+    const slider = kindWrap.querySelector('.slider');
+    const slideLis = slider.querySelectorAll('li');
+    const moveButton = kindWrap.querySelector('.arrow');
+    const liWidth = slideLis[0].clientWidth;
+    let moveDist = -liWidth;
+    let currentNum = 1;
+    let speedTime = 500;
+
+    // 클론만들기
+    const cloneA = slideLis[0].cloneNode(true);
+    const cloneC = slideLis[slideLis.length - 1].cloneNode(true);
+    console.log(cloneA, cloneC);
+    slider.insertBefore(cloneC, slideLis[0]);
+    slider.appendChild(cloneA);
+
+    /* 넓이 구하기 */
+    const slideCloneLis = slider.querySelectorAll('li');
+    const sliderWidth = liWidth * slideCloneLis.length;
+    slider.style.width = sliderWidth + 'px';
+    slider.style.left = `${moveDist}px`;
+    
+    
+    moveButton.addEventListener('click', moveSlide);
+
+    function moveSlide(ev) {
+        ev.preventDefault();
+        if (ev.target.className === 'next') {
+            move(-1);
+            if (currentNum === slideCloneLis.length - 1) {
+                setTimeout(() => {
+                    slider.style.transition = 'none';
+                    moveDist = -liWidth;
+                    slider.style.left = `${-liWidth}px`;
+                    currentNum = 1;
+                    console.log(moveDist, currentNum)
+                }, speedTime);
+            }
+        } else {
+            move(1);
+            if (currentNum === 0) {
+                setTimeout(() => {
+                    slider.style.transition = 'none';
+                    moveDist = -liWidth * (slideCloneLis.length - 2)
+                    slider.style.left = `${moveDist}px`;
+                    currentNum = slideCloneLis.length - 2;
+                    console.log(moveDist, currentNum)
+                }, speedTime);
+                
+                // currentNum = slideLis.length - 1;
+                // moveDist = -(liWidth * currentNum);
+                // slider.style.left = `${moveDist}px`;
+            } 
+        }
+        function move(direction) {
+            currentNum += (-1 * direction)
+            moveDist += liWidth * direction;
+            slider.style.transition = `all ${speedTime}ms ease`;
+            slider.style.left = `${moveDist}px`;
+        }
+
+
+    }
+}
+
+
+</script>
+
+</body>
+</html>
